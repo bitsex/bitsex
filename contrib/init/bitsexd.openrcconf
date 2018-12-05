@@ -1,0 +1,26 @@
+# /etc/conf.d/bitsexd: config file for /etc/init.d/bitsexd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/bitsex/bitsex.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/bitsexd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/bitsexd.pid"
+
+# Where to write bitsexd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/bitsexd"
+
+# User and group to own bitsexd process
+#BITCOIND_USER="bitsex"
+#BITCOIND_GROUP="bitsex"
+
+# Path to bitsexd executable
+#BITCOIND_BIN="/usr/bin/bitsexd"
+
+# Nice value to run bitsexd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

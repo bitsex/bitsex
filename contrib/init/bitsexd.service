@@ -1,0 +1,26 @@
+[Unit]
+Description=Bitsex's distributed currency daemon
+After=network.target
+
+[Service]
+User=bitsex
+Group=bitsex
+
+Type=forking
+PIDFile=/var/lib/bitsexd/bitsexd.pid
+
+ExecStart=/usr/bin/bitsexd -daemon -pid=/var/lib/bitsexd/bitsexd.pid \
+          -conf=/etc/bitsex/bitsex.conf -datadir=/var/lib/bitsexd
+
+ExecStop=-/usr/bin/bitsex-cli -conf=/etc/bitsex/bitsex.conf \
+         -datadir=/var/lib/bitsexd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
